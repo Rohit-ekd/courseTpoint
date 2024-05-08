@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What is Deadlock..?</title>
+    <link rel="stylesheet" href="../style/style_a.css">
+    <link rel="stylesheet" href="../style/card.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,600,1,0" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+    <!-- nav bar -->
+    <div id="header_file"></div>
+
+
+
+    <!-- Main contain -->
+    <div class="container" id="start">
+        <h2 class="h2-head">What is Deadlock ?</h2>
+    </div>
+    <div class="container">
+        <table>
+            <th colspan="1">Table Of Content</th>
+            <tr>
+                <td>
+                    <ul class="ul-list">
+                        <li><a href="#a">Deadlock</a></li>
+                        <li><a href="#b">System Model</a></li>
+                        <li><a href="#c">Deadlock Characterization</a></li>
+                        <li><a href="#d">Strategies for handling deadlock </a></li>
+                        </ul>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <main class="container justify-content-md-start">
+        <div>
+            <h5 class="h2-head" id="a">What is Deadlock in OS ?</h5>
+            <p class="p-para">  A deadlock is a situation where two or more processes are unable to proceed because each is waiting for a 
+                resource held by another process in the same set. In other words, each process is stuck waiting for a resource 
+                that is held by another process, causing a circular dependency that prevents any of the processes from making
+                progress. Deadlocks are a type of resource allocation issue that can occur in systems with multiple processes 
+                competing for shared resource.</p>
+                <p>Picture shows the deadlock condition - </p>
+                <img src="../image/deadlock.jpg" alt="" class="img-fluid">
+        </div>
+        <div>
+            <h5 class="h2-head" id="b">System Model In OS</h5>
+            <p class="p-para">A system model refers to the abstraction used to represent the resources and 
+                processes within a system, as well as the interactions between them. Understanding the system 
+                model is crucial for analyzing and managing deadlocks effectively. 
+            </p>
+            <p> There are several common components of a system model in deadlock analysis:</p>
+            <ul>
+                <li><strong>Resources:</strong>  Resources are entities that are used or requested by processes 
+                    during their execution. These can include various types of system resources such as memory, 
+                    CPU time, I/O devices, and more.</li>
+                <li><strong>Processes:</strong>   Processes are the executing entities within the system. Each 
+                    process may request and hold resources during its execution.</li>
+                <li><strong>Resource Types: </strong>  Resources can be classified into different types based on 
+                    their characteristics. For example, resources may be categorized as reusable or consumable, 
+                    or they may have different levels of priority.</li>
+                <li><strong>Resource Allocation: </strong>   This component of the system model describes how 
+                    resources are allocated to processes. It includes mechanisms for requesting, acquiring,
+                     using, and releasing resources.</li>
+                <li><strong>Deadlock Conditions:</strong>  The system model should include an understanding of 
+                    the necessary conditions for deadlock, such as mutual exclusion, hold and wait, no 
+                    preemption, and circular wait.</li>
+                <li><strong>Concurrency:</strong>  The system model should account for the concurrent execution of 
+                    multiple processes and their interactions with resources. Concurrent execution introduces the 
+                    potential for race conditions and contention for resources, which can lead to deadlock.</li>
+            </ul>
+        </div>
+        <div>
+            <h5 class="h2-head" id="c">Characteristics of Deadlock</h5>
+            <p class="p-para"> Deadlock characterization refers to the identification and 
+                        understanding of conditions that can lead to deadlock in a system.
+                        To understand and prevent deadlocks, it's essential to characterize the 
+                        conditions that can potentially lead to deadlock.</p>
+                        <p>
+                            Four conditions must be met for a deadlock to occur.</p>
+                        <ul>
+                             <li>Mutual Exclusion</li>
+                             <li>Hold and Wait</li>
+                             <li>No Preemption</li>
+                             <li>Circular Wait</li>
+                        </ul>
+                        <ol>
+                            <li><strong>Mutual Exclusion:</strong>  The First condition is Mutual Exclusion, in which at least 
+                                one resource must be held in a non-sharable mode, meaning only one process at a time can use the resource. 
+                                This condition ensures that the resource cannot be simultaneously accessed or modified by multiple processes.</li>
+                            <li><strong>Hold and Wait:</strong>  The "Hold and Wait" condition in deadlock refers to a scenario where processes hold resources 
+                                they already possess while simultaneously waiting for additional resources that are currently held by other processes.
+                                The "Hold and Wait" condition is one of the necessary condition of the deadlock occurance.</li>
+                            <li><strong>No Preemption:</strong>  The "No Preemption" condition in deadlock refers to a scenario where resources cannot be forcibly taken
+                                away from a process that is currently holding them. They must be released voluntarily by the process holding them. This condition ensures that processes cannot be interrupted 
+                                or preempted while holding resources, which can contribute to deadlock scenarios.</li>
+                            <li><strong>Circular Wait:</strong>  The "Circular Wait" condition in deadlock refers to a scenario where there exists a circular chain of 
+                                two or more processes, each of which is waiting for a resource held by the next process in the chain. This condition is 
+                                one of the four necessary conditions for deadlock to occur.This condition forms a circular dependency among the processes,
+                                where each process is waiting for a resource held by another process in the cycle.</li>
+                        </ol>
+        </div>
+        <div>
+            <h5 class="h2-head" id="d">Strategies for handling deadlock </h5>
+            <p class="p-para"> 
+                Deadlocks are situations in concurrent systems where two or more processes are unable to proceed 
+                because each is waiting for the other to release a resource. Handling deadlocks requires careful 
+                design and implementation of strategies to detect, prevent, and recover from deadlock situations.
+            </p>
+            <p> Here are some common strategies for handling deadlocks: </p>
+            <ul>
+                 <li>Deadlock Ignorance</li> 
+                 <li>Deadlock Prevention</li>
+                 <li>Deadlock Avoidance</li>
+                 <li>Deadlock Detection & Recovery</li>
+            </ul>
+            <ol>
+                <li><p><strong>Deadlock Ignorance:</strong>  Deadlock ignorance, also known as Ostrich Method 
+                    through ignoring the problem, is a strategy where the system designers or developers choose 
+                    to not implement specific mechanisms to detect, prevent, or resolve deadlocks. Instead, they 
+                    depend on the assumption that deadlocks are rare occurrences or that the likelihood of 
+                    deadlocks happening is low enough that dealing with them preemptively is not worth the 
+                    effort.</p>
+                    <p>This approach essentially involves disregarding the deadlock problem and accepting the 
+                        risk that deadlocks may occur. It can be justified in situations where the cost of 
+                        implementing deadlock prevention or detection mechanisms overcome the potential impact 
+                        of occasional deadlocks. Additionally, it might be considered in systems where deadlocks 
+                        are extremely unlikely due to the nature of the applications or the usage patterns.</p>
+                </li>
+                <li><p><strong>Deadlock Prevention:</strong>  Deadlock prevention is a strategy employed in operating systems to ensure that 
+                    deadlock does not occur. Having seen that deadlock avoidance is essentially impossible, because it requires Information
+                    about future requests, which is not known , how to real systems avoid deadlock? The answer is to go back to the Four
+                    conditions to see if they can provide any clue. If we can ensure that al least one of these conditions is never satisfied,
+                    then deadlocks will be structurally impossible. </p>
+                    <p>Here are some common techniques used for deadlock prevention:</p>
+                    <ul>
+                        <li><u>Mutual Exclusion:</u>   Ensure that resources cannot be shared among processes. This prevents the possibility of deadlock since a resource can only be held by one process at a time.</li>
+                        <li><u>Hold and Wait:</u>  Require processes to request all the resources they need before starting execution, rather than requesting them incrementally. This way, a process will not hold any resources while waiting for others, reducing the chance of deadlock.</li>
+                        <li><u>No Preemption:</u>  Do not allow resources to be forcibly taken away from a process. This means that if a process is holding certain resources and requests additional resources that cannot be immediately allocated, it will release all currently held resources and start over.</li>
+                        <li><u>Circular Wait Elimination:</u>  Impose a total ordering of all resource types and require that each process request resources in an increasing order of enumeration. By ensuring that resources are always requested in the same order, the possibility of circular waits (where each process is waiting for a resource held by the next process in a circular chain) is eliminated.</li>
+                    </ul>
+                </li>
+                <li><p><strong>Deadlock Avoidance:</strong>  eadlock avoidance is another strategy used in operating systems to deal with
+                     the problem of deadlock. Unlike deadlock prevention, which focuses on structuring the system in a way that deadlocks 
+                     cannot occur, deadlock avoidance allows for the possibility of deadlock but employs techniques to ensure that the 
+                     system can always recover from it if it does occur.</p>
+                    <p>In deadlock avoidance, the system uses various algorithms and heuristics to dynamically analyze the state of the 
+                        system and the resource allocation requests from processes to decide whether granting a request would potentially 
+                        lead to deadlock. The system then makes decisions based on this analysis to ensure that deadlocks are avoided or 
+                        resolved if they are detected.</p>
+                    <p>One common technique used in deadlock avoidance is the Banker's algorithm. </p>
+                    <p><b><u>Banker's Algorithm:</u></b>  A Scheduling algorithm that can avoid deadlocks is due to Dijkstra and is known 
+                        as the Banker's Algorithm and is an extension of Deadlock Detection algorithm. This algorithm works by simulating 
+                        the allocation of resources to processes and 
+                        determining if a particular resource allocation will lead to a safe state (a state where all processes can 
+                        complete their execution without causing deadlock). If a safe state can be reached, the resource allocation is 
+                        granted; otherwise, the request is denied or delayed until a safe state is possible.</p>
+                    <p>Here's an example of Banker's Algorithm-</p>
+                    
+                </li>
+                <li><p><strong>Deadlock Detection & Recovery:</strong>  Deadlock detection and recovery is another approach used in 
+                    operating systems to address the deadlock problem. Unlike deadlock prevention and avoidance, which aim to prevent 
+                    deadlocks from occurring or avoid them altogether, deadlock detection and recovery acknowledges the possibility of 
+                    deadlocks and focuses on identifying them when they occur and then taking action to recover from them.</p>
+                    <p>Here's how deadlock detection and recovery typically work:</p>
+                    <p><b>Deadlock Detection:</b>  Deadlock detection in operating systems is a mechanism used to identify whether a 
+                        deadlock has occurred within the system. Deadlock detection is an essential component of deadlock management in 
+                        operating systems. By detecting deadlocks, the system can take appropriate actions to mitigate their impact and 
+                        ensure the continued functionality and stability of the system. </p>
+                        <p><b>Detection Using 'Resource Allocation Graph':</b>  A resource allocation graph is a graphical representation 
+                            used in operating systems to analyze resource allocation and detect potential deadlocks. It is primarily 
+                            employed in systems where resources are shared among multiple processes, and the occurrence of deadlocks 
+                            needs to be managed.  In this graph, processes are represented as nodes, and resource types are represented 
+                            as additional nodes. Directed edges represent resource requests and allocations. A cycle in this graph 
+                            indicates the potential occurrence of a deadlock.</p>  
+                        <p>Example of Resource Allocation Graph(RAG)-</p>
+                        <img src="../image/RAG.jpg" alt="" class="img-fluid">
+                        <p><b>Deadlock Recovery:</b>  Deadlock recovery is a process in operating systems where the system detects the 
+                            occurrence of a deadlock and takes actions to resolve it so that the affected processes can resume execution. 
+                            Deadlock recovery mechanisms are essential for maintaining system stability and ensuring that the system can 
+                            continue to function despite encountering deadlock situations.</p>
+                            <p>Various recovery techniques from a deadlock situation-</p>
+                            <ul>
+                                <li><p><b>Recovery through Preemption:</b>  The ability to take a resource away from a process use it, and then give 
+                                it back without the process noticing it is highly dependent on the nature of the resource. Recovering this way
+                                is frequently difficult or impossible. Choosing the process to suspend depends largely on which ones have
+                                resources that can easily be taken back.</p></li>
+                                <li><p><b>Recovery from Rollback:</b>  When a deadlock is detected, it is easy to see which resources are needed.
+                                To do the recovery, a process that owns a needed resource is rolled back to a point in time before it acquired
+                                some other resource by starting one of its earlier check-points. All the work done since the checkpoint is lost.
+                                In effect, the process is reset to an earlier moment when it did not have the resource, which is now assigned to one 
+                                of the deadlocked processes. If the restarted process tries to acquire the resource again, it will have to wait until it
+                                becomes available.</p></li>
+                                <li><p><b>Recovery through killing process:</b>  In this approach, process to be killed is carefully chosen
+                                    because it is holding resources that some process in the cycle needs. For example, one process might hold
+                                    a printer and want a plotter, with another process holding a plotter and wanting a printer. These two are
+                                    deadlocked. A third process may hold another identical printer and another identical plotter and be happily
+                                    running. Killing the third process will release these resources and break the deadlock involving the first two.
+                                </p></li>
+                            </ul>
+                </li>
+            </ol>
+        </div>
+        <div class="btnn">
+            <div class="btn1">
+                <a href="os_b.html">Previous</a>
+            </div>
+            <div class="btn1">
+                <a href="os_d.html">Next</a>
+            </div>
+        </div>
+    </main>
+    <!-- Footer -->
+    <div id="footer_file"></div>
+   
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+    <script type="text/javascript">
+        $("#header_file").load("../heads.html");
+        $("#footer_file").load("../footer.html");
+    </script>
+</body>
+
+</html>

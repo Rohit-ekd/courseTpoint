@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What is CPU Scheduling</title>
+    <link rel="stylesheet" href="../style/style_a.css">
+    <link rel="stylesheet" href="../style/card.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,600,1,0" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+    <!-- nav bar -->
+    <div id="header_file"></div>
+
+
+    <!-- Main contain -->
+    <div class="container" id="start">
+        <h2 class="h2-head">What is Process</h2>
+    </div>
+    <div class="container">
+        <table>
+            <th colspan="2">Table Of Content</th>
+            <tr>
+                <td>
+                    <ul class="ul-list">
+                        <li><a href="#a">Process Concept</a></li>
+                        <li><a href="#b">Process Control Block</a></li>
+                        <li><a href="#c">Process State Transitions</a></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul class="ul-list">
+                        <li><a href="#d">Schedulers</a></li>
+                        <li><a href="#e">Performance criteria</a></li>
+                        <li><a href="#f">Scheduling & Scheduling Algorithms</a></li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <main class="container justify-content-md-start">
+        <div>
+            <h5 class="h2-head" id="a">Process Concept</h5>
+            <p class="p-para">
+                Process Concept:- A Process is basically aprogram in execution. Associated with each process is its address space,
+                                  a list of memory location from some minimum(usually 0) to some maximum, which the process can read and write. A process is just an executing,
+                                  program, including the current values of the program counter, registers and variables.Conceptually, each process has its own
+                                  virtual CPU. A key idea here is that a process is an activity of some kind. It has a program, input, output, and a state.A
+                                  single processes, with some scheduling algorithm being used to determine when to stop work on one process and service a different one.
+
+            </p>
+            <u> Attributes/Characteristics of Process:-</u>
+            <ul>
+                <li>Process ID</li>
+                <li>Process State</li>
+                <li>CPU Registers</li>
+                <li>Account Information</li>
+                <li>I/O Status Information</li>
+                <li>CPU Scheduling Information</li>
+            </ul>
+        </div>
+        <div>
+            <h5 class="h2-head" id="b">Process Control Block</h5>
+            <p class="p-para"> a Process Control Block (PCB) is a data structure that contains information about a particular 
+                process being managed by the operating system. The PCB is essential for the operating system to effectively manage processes 
+                and ensure proper execution. Each process in the system has its own PCB, which holds various pieces of information needed 
+                by the operating system to control and manage the process.
+            </p>
+            <p> 
+                The PCB typically includes various pieces of information about the process, including:
+            </p>
+            <ul>
+                <li><u> Process State:</u> This indicates whether the process is running, ready, blocked, etc.</li>
+                <li><u> Program Counter:</u>  This keeps track of the address of the next instruction to be executed for the process.</li>
+                <li><u> CPU Registers:</u> These are the contents of CPU registers such as accumulator, index registers, stack pointers, etc. These values need to be saved when the process is switched out so that it can be resumed later.</li>
+                <li><u>Process ID (PID)</u>: A unique identifier assigned to each process.</li>
+                <li><u>Priority:</u> Some operating systems support priority scheduling, so the priority of the process in relation to other processes is stored in the PCB.</li>
+                <li><u>Memory Management Information: </u>Information about the memory allocated to the process, including the base address, limit, page tables, etc.</li>
+                <li><u>I/O Status Information: </u> Information about open files, devices allocated, etc.</li>
+                <li><u>Accounting Information: </u>Statistics related to resource usage, such as CPU time consumed, time limits, etc.</li>
+            </ul>
+        </div>
+        <div>
+            <h5 class="h2-head" id="c">Process State Transitions:</h5>
+            <img src="../image/processcycle.jpg" alt="" class="img-fluid">
+            <p class="p-para"> 
+                Process State Transitions defines the cycle of the process from when the process is 
+                created, prepared, and terminated.
+            </p>
+            <p>The various Process State Transitions are - </p>
+            <ol>
+                <li>New State</li> 
+                <li>Ready State</li>
+                <li>Runnning</li>
+                <li>Wait/Block State</li>
+                <li>Terminated</li>
+            </ol>
+            <ol>
+                <li><u> New State:</u> New is a state where the process is created.</li>
+                <li><u>Ready State:</u> Ready is a state where the process is ready for the execution.</li>
+                <li><u>Running State:</u> Running is a state where the process is in running state and other process are in queue.</li>
+                <li><u> Wait/Block State:</u> It is a state where process wants some I/O event, CPU Switches the process into wait/block state
+                    for the I/O event. After the completion of the I/O event the process switches back to the ready state.</li>
+                <li><u>Terminated:</u> Termination is a state where the process is terminated after completion of the events or task.</li>
+            </ol> 
+        </div>
+        <div>
+            <h5 class="h2-head" id="d">What are Schedulers?</h5>
+            <p class="p-para">Schedulers are software components responsible for managing and controlling the execution of tasks or processes within a computer system. They are crucial in multitasking operating systems, where multiple processes or threads compete for CPU time. The primary goal of a scheduler is to allocate system resources efficiently while meeting various criteria such as fairness, responsiveness, and throughput. </p>
+            <h6 class="h2-head">Types Of Schedulers</h6>
+            <img src="../image/Schedulers.jpg" alt="" class="img-fluid">
+            <p>
+                There are three types of Schedulers.
+            </p>
+            <ol>
+                <li>Long-Term Scheduler</li>
+                <li>Short-Term Scheduler</li>
+                <li>Medium-Term Scheduler</li>
+            </ol>
+            <h6 class="h2-head">Long-Term Scheduler:</h6>
+            <p class="p-para">Long-Term Scheduler is also known as job scheduler. It chooses(secondary memory) and keeps them in the ready 
+                              queue maintained in the primary memory.Long-Term Scheduler mainly controls the degree
+                              of multiprogramming. The purpose of Long-Term Scheduler is to choose a perfect mix of
+                              I/O bound and CPU bound processes among the jobs present in the pool.
+            </p>
+            <h6 class="h2-head">Medium-Term Scheduler:</h6>
+            <p class="p-para">Medium-Term Scheduler takes care of the swapped out process. If the running state processes
+                              needs some I/O time for the completion, then there is a need to change its state from running 
+                              to waiting. </p>
+                              <p>It reduces the degree of multi-programming. The swapping is necessary to have
+                                 a perfect mix of the processes in the ready queue.
+                              </p>
+            <h6 class="h2-head">Short-Term Scheduler</h6>
+            <p class="p-para">Short-Term Scheduler is also known as a CPU Scheduler. It selects one of the jobs from
+                              the ready queue and dispatch to the CPU for execution.</p>
+                              <p> A scheduling algorithm is used to select which job is going to be dispatched for the 
+                                  execution. The job of the Short-Term Scheduler can be very critical in the sense that
+                                  if it selects job whose CPU burst time is very high then all the jobs after that, will 
+                                  have to wait in the ready queue for a very long time.This problem is called <u>Starvation</u>
+                                  which may arise if the Short-Term Scheduler makes somes mistakes while selecting the job.
+                              </p>  
+        </div>
+        <div>
+            <h5>Difference between Long-Term, Short-Term, Medium-Term Scheduler-</h5>
+            <table class="table table-bordered table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>S.NO</th>
+                        <th>Long-Term Scheduler</th>
+                        <th>Short-Term Scheduler</th>
+                        <th>Medium-Term Scheduler</th>
+                    </tr>
+                </thead>
+                
+                <tr>
+                    <td>1</td>
+                    <td>It is also known as job Scheduler</td>
+                    <td>It is also known as CPU Scheduler</td>
+                    <td>It is a process swapping Scheduler</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>It controls the degree of Multi-programming</td>
+                    <td>It provides lesser control over degree of Multi-programming.</td>
+                    <td>It reduces the degree of Multi-programming.</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Speed is lesser than Short-Term Scheduler.</td>
+                    <td>Speed is faster among the other two.</td>
+                    <td>Speed is in between the Long-Term & Short-Term Scheduler</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>It takes process from the job pool.</td>
+                    <td>It takes process form the ready state.</td>
+                    <td>It takes process from running or wait/block state.</td>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <h5 class="h2-head" id="e">Performance Criteria </h5>
+            <p class="p-para">
+                Performance criteria in operating systems refer to the criteria or factors used to evaluate the efficiency, 
+                responsiveness, and overall effectiveness of the operating system in managing system resources and providing 
+                services to users.These criteria are essential for assessing the performance of an operating system and identifying 
+                areas for improvement. </p>
+                <p>Some common performance criteria in operating systems include:</p>
+                <ol>
+                  <li><u>Throughput:</u>  Throughput measures the rate at which the operating system can process tasks or requests over a given period. 
+                    It is typically expressed in terms of tasks completed per unit of time and indicates the system's overall processing 
+                    capacity. </li>
+                  <li><u>Response Time:</u>  Response time, also known as latency, is the time it takes for the operating system to respond to a user 
+                    request or input. It includes the time taken to initiate the request, process it, and generate a response. Low response 
+                    times contribute to a more responsive and user-friendly system.</li>
+                  <li><u>Turnaround Time:</u>  Turnaround time refers to the total time taken to execute a task or process from the time it is submitted
+                    until it is completed. It includes both processing time and waiting time in queues. Minimizing turnaround time helps 
+                    improve system efficiency and user satisfaction.</li>
+                  <li><u>Waiting time:</u>  A scheduling algorithm does not affect the time required to complete the process once it starts execution.
+                    It only affects the waiting time of a process.</li>
+                  <li><u>Completion Time:</u>  The completion time is the time when th process steps executing, which means that rhe process has 
+                    completed its burst time and it completely executed.</li>
+                  <li><u>.I/O Throughput:</u>  I/O throughput evaluates the rate at which input/output operations are processed by the operating system, 
+                    including disk reads and writes, network communication, and peripheral device access.</li>
+                  <li><u>.CPU Utilization:</u>  CPU utilization measures the percentage of time the CPU spends executing tasks compared to the total 
+                        time available. High CPU utilization indicates efficient resource utilization and effective workload management, while 
+                        low utilization may indicate underutilization or inefficient scheduling.</li>
+                  <li><u>Memory Utilization:</u>:  Memory utilization measures the percentage of system memory (RAM) used by active processes and the 
+                         operating system. Efficient memory utilization ensures optimal performance by avoiding excessive paging or swapping and 
+                         minimizing memory-related bottlenecks.</li>       
+            </ol>
+            </div>
+            <div>
+            <h6 class="h2-head" id="f">What is Scheduling..?</h6>
+            <p class="p-para"> Scheduling in operating systems refers to the process of allocating system resources to different tasks or processes over time. 
+                It involves deciding which process should run when, how long it should run, and in what order. 
+                Scheduling is a fundamental concept in operating systems and plays a crucial role in ensuring efficient utilization of 
+                system resources, improving system performance, and providing a responsive user experience. </p>
+                <strong>Advantages Of Scheduling:</strong>
+                <ul>
+                    <li><u>Optimal Resource Utilization:</u>  Scheduling ensures that system resources, such as CPU time, memory, and I/O devices, are allocated efficiently among competing processes.
+                        By prioritizing and scheduling tasks based on predefined criteria, scheduling algorithms maximize resource utilization and minimize idle time, thus optimizing system throughput and performance.</li>
+                    <li><u>Improved Responsiveness:</u>  Effective scheduling algorithms prioritize interactive and time-sensitive tasks, such as user 
+                        input and system interrupts, to ensure quick response times and a responsive user interface. By minimizing response 
+                        times and reducing latency, scheduling enhances system responsiveness, leading to a better user experience and improved 
+                        productivity.</li>
+                    <li><u>Enhanced System Performance:</u>  Scheduling plays a crucial role in optimizing system performance by managing the execution 
+                        order and timing of tasks. By employing efficient scheduling algorithms and strategies, operating systems can reduce 
+                        overhead, minimize resource contention, and improve overall system throughput and performance.</li>
+                    <li><u>Support for Multitasking and Multiprogramming:</u>  Scheduling enables multitasking and multiprogramming by allowing multiple 
+                        processes to run concurrently on a single CPU or across multiple CPUs. By switching rapidly between processes and 
+                        managing their execution in a time-shared manner, scheduling enables users to perform multiple tasks simultaneously, 
+                        increasing productivity and efficiency.</li>
+                    <li><u>Fairness and Equity:</u>  Scheduling algorithms strive to provide fair and equitable access to system resources for all processes.
+                        By allocating CPU time and other resources fairly among competing processes, scheduling ensures that no single process 
+                        monopolizes system resources, leading to a balanced and equitable distribution of computing resources among users and 
+                        applications.</li>
+                </ul>
+             </div>
+             <div>
+                <strong>Scheduling Algorithms:</strong>
+                <p> A scheduling algorithm is a computational procedure or set of rules used by an operating system to
+                    determine the order in which tasks or processes are executed on a computer system's CPU. Scheduling algorithms play a 
+                    crucial role in managing system resources and ensuring efficient utilization of CPU time. </p>
+                    <p>Scheduling can be done by two methods:</p>
+                    <ul>
+                        <li><u>Preemptive Scheduling:</u>  In preemptive scheduling, the operating system can interrupt a currently executing process 
+                               and allocate the CPU to another process with a higher priority or one that has become runnable.</li>
+                        <li><u>Non-Preemptive Scheduling:</u>   Non-preemptive scheduling does not allow the operating system to interrupt a process while 
+                               it is executing. Once a process starts running, it continues until it completes its CPU burst or blocks for I/O.</li>
+                    </ul>
+                               <p>The most common Scheduling algorithms are-</p>
+                               <ol>
+                                   <li><strong>FCFS(First Come First Serve) Algorithm:</strong>  FCFS stands for First-Come, First-Served, and it is one of the simplest scheduling 
+                                   algorithms used in operating systems. In FCFS scheduling, the processes are executed in the order they arrive in the 
+                                   ready queue. The process that arrives first is scheduled first for execution, and it continues executing until it 
+                                   completes or blocks for I/O or any other reason.
+                                   <p>Here is an example of FCFS Algorithm-</p>
+
+                                   </li>
+                                   <li><strong>SJF(Shortest Job First) Algorithm:</strong>  SJF stands for Shortest Job First.
+                                               In SJF scheduling, the process with the smallest execution time is selected for execution next. 
+                                               It aims to minimize the average waiting time for processes and maximize CPU utilization.
+                                               <p>Here is an example of SJF Algorithm-</p>
+                                               <img src="../image/SJFscheduling.jpg" length="400" width="400">
+                                   </li>
+                                   <li><strong>RR(Round Robin) Algorithm:</strong>  Round robin Algorithm is designed to provide fair CPU time allocation to all processes by 
+                                               allowing each process to execute for a fixed time interval called a time quantum or time slice. 
+                                               Once a process has consumed its time quantum, it is preempted and placed back at the end of the 
+                                               ready queue to await its next turn.
+                                               <p>Here is an example of RR Algorithm-</p>
+                                               <img src="../image/roundrobinscheduling.jpg" length="400" width="400">
+                                    </li>
+                                    <li><strong>Priority Algorithm:</strong>The scheduler selects the process with the highest priority for 
+                                        execution. If multiple processes have the same highest priority, various factors can be used to 
+                                        determine the order of execution, such as time of arrival or additional scheduling policies like 
+                                        Round Robin.
+                                        <p>Here is an example of Priority Algorithm-</p>
+                                        <img src="../image/priorityscheduling.jpg" length="400" width="400">
+                                    </li>
+                               </ol>
+                    </ul>
+             </div>
+        <div class="btnn">
+            <div class="btn1">
+                <a href="os_a.html">Previous</a>
+            </div>
+            <div class="btn1">
+                <a href="os_c.html">Next</a>
+            </div>
+        </div>
+    </main>
+    <!-- Footer -->
+    <div id="footer_file"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+    <script type="text/javascript">
+        $("#header_file").load("../heads.html");
+        $("#footer_file").load("../footer.html");
+    </script>
+</body>
+
+</html>
