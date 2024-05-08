@@ -1,0 +1,24 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(70deg, #8c52ff, #5ce1e6);
+    height: 100vh;
+}
+
+.head {
+    color: white;
+    font-size: 1.5em;
+    font-family: 'Borel', cursive;
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Overpass', sans-serif;
+    font-family: 'PT Serif', serif;
+}
+
+.navbg{
+    background-color: #f46530;
+}
+

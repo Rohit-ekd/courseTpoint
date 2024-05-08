@@ -1,0 +1,202 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  line-height: 1.8;
+}
+
+.nav-item .nav-link {
+  color: white;
+  font-weight: bold;
+  font-size: larger;
+}
+
+.t-style {
+  color: #FF407D;
+}
+
+.nav-item .nav-link:hover {
+  color: green;
+}
+
+.choice:hover {
+  cursor: pointer;
+  border: 5px solid green;
+}
+
+.choices {
+  margin-top: 5rem;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  gap: 1rem;
+}
+
+.choice {
+  height: 160px;
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+  flex-direction: column;
+  padding: 1rem;
+  border: 2px solid lightblue;
+  padding: 1rem;
+
+}
+
+.border-hover {
+  margin: 2rem;
+  text-align: center;
+}
+
+.imgs {
+  height: 80px;
+  width: 80px;
+  object-fit: contain;
+  padding: 5px;
+}
+
+.para {
+  font-size: 1.2rem;
+  color: #201658;
+  text-align: center;
+}
+
+.head {
+  color: #1B3C73;
+  text-decoration: underline;
+}
+
+
+.content p {
+  font-weight: bold;
+}
+
+
+.icon {
+  margin-right: 2px;
+  position: relative;
+  top: 5px;
+}
+
+.createbutton {
+  max-width: fit-content;
+  padding: 8px;
+  background-color: lightgray;
+  position: relative;
+}
+
+.createbutton:hover {
+  opacity: 0.75;
+}
+
+.createbutton a {
+  text-decoration: none;
+  font-size: large;
+  color: black;
+}
+
+.bi:hover {
+  opacity: 0.7;
+}
+
+.color-facebook {
+  color: #3B5998;
+}
+
+.color-telegram {
+  color: #55ACEE;
+}
+
+.color-twitter {
+  color: #000000;
+}
+
+.color-instagram {
+  color: #a2159b;
+}
+
+
+.head1 {
+  font-weight: bold;
+  color: #007bb5;
+}
+
+.h2-head {
+  color: #1B3C73;
+  text-decoration: underline;
+}
+
+.p-para {
+  font-size: large;
+
+}
+
+.ul-list li a {
+  text-decoration: none;
+}
+
+.ul-list li a:hover {
+  color: red;
+}
+
+.links h6 a {
+  color: black;
+}
+
+.links h6 a:hover {
+  color: red;
+}
+
+
+.btnn {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.btn1 a {
+  text-decoration: none;
+  border: 2px solid grey;
+  padding: 0.5rem;
+  border-radius: 5px;
+  color: black;
+  font-weight: bold;
+}
+
+.btn1 a:hover {
+  background-color: lightslategrey;
+  color: white;
+  opacity: 0.80;
+}
+
+li span {
+  font-weight: bold;
+}
+
+.border-line {
+  border: 3px solid black;
+  border-radius: 1rem;
+  background-color: aliceblue;
+  padding-left: 2rem;
+}
+
+.center {
+  text-align: center;
+}
+
+.pyq-style{
+  font-weight: bold;
+  color: coral;
+  font-size: larger;
+}
+.pyq-style p a:hover{
+  opacity: 0.75;
+  color: green;
+}
+
+.syntax{
+  font-size: large;
+}
